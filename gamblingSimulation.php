@@ -3,12 +3,14 @@
 define('STAKE',100);
 $stake_value=STAKE;
 $bet_amount=1;
+$minimum_percentage=50;
+$maximum_percentage=150;
 echo "Press Enter to gamble";
 fscanf(STDIN,"%s");
-$min_stake_percentage = $stake_value/2;
-$max_stake_percentage = $stake_value+($stake_value/2);
+$min_value = ($minimum_percentage*$stake_value)/100;
+$max_value = ($maximum_percentage*$stake_value)/100;
 
-while(!($stake_value==$min_stake_percentage || $stake_value==$max_stake_percentage))
+while(!($stake_value==$min_value || $stake_value==$max_value))
 {
    $random = rand(0,1);
    if($random==1)
