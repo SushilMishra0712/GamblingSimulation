@@ -1,30 +1,27 @@
 <?php
 
-$stake=100;
-$bet=1;
-$counter=1;
+define('STAKE',100);
+$stake_value=STAKE;
+$bet_amount=1;
 echo "Press Enter to gamble";
 fscanf(STDIN,"%s");
-$min_stake_percentage = $stake/2;
-$max_stake_percentage = $stake+($stake/2);
+$min_stake_percentage = $stake_value/2;
+$max_stake_percentage = $stake_value+($stake_value/2);
 
-while($counter>0)
+while(!($stake_value==$min_stake_percentage || $stake_value==$max_stake_percentage))
 {
    $random = rand(0,1);
    if($random==1)
    {
-      $stake+=$bet;
+      $stake_value+=$bet_amount;
    }
    else
    {
-      $stake-=$bet;
-   }
-   if($stake==$min_stake_percentage || $stake==$max_stake_percentage)
-   {
-      echo "You had resigned for the day\n";
-      echo "Your stake amount at end of the day is:".$stake."\n";
-      $counter--;
+      $stake_value-=$bet_amount;
    }
 }
+
+echo "You had resigned for the day\n";
+echo "Your Stake amount at the end of the day is:".$stake_value."\n";
 
 ?>
