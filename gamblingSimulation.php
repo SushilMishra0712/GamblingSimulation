@@ -9,7 +9,7 @@ $loose_amount=0;
 echo "Press Enter to gamble";
 fscanf(STDIN,"%s");
 
-for($day=1;$day<21;$day++)
+for($day=1;$day<31;$day++)
 {
 	$stake_value = STAKE;
 	$percentage_value = (PERCENTAGE*$stake_value)/100;
@@ -29,33 +29,34 @@ for($day=1;$day<21;$day++)
 	   }
 	}
 
-	echo "Your stake at the end of day ".$day." is:".$stake_value."\n";
 	if($stake_value==$min_value)
 	{
+	   echo "On day ".$day." You loose by ".$percentage_value."\n";
 	   $loose_amount+=$percentage_value;
 	}
 	else if($stake_value==$max_value)
 	{
+	   echo "On day ".$day." You won by ".$percentage_value."\n";
 	   $win_amount+=$percentage_value;
 	}
 }
 
-echo "After 20 days of playing\n";
+echo "After a month of playing\n";
 echo "Total amount won:".$win_amount."\n";
 echo "Total amount loose:".$loose_amount."\n";
 if($win_amount>$loose_amount)
 {
     $difference = $win_amount-$loose_amount;
-    echo "Congrats You won by ".$difference." at the end of 20th day\n";
+    echo "Congrats You won by ".$difference." at the end of month\n";
 }
 else if($win_amount<$loose_amount)
 {
     $difference = $loose_amount-$win_amount;
-    echo "Sorry You loose by ".$difference." at the end of 20th day\n";
+    echo "Sorry You loose by ".$difference." at the end of month\n";
 }
 else
 {
-    echo "You neither won or loose at the end of 20th day\n";
+    echo "You neither won or loose at the end of month\n";
 }
 
 ?>
